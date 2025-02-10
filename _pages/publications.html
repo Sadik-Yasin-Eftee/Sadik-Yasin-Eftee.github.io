@@ -6,31 +6,35 @@ author_profile: true
 ---
 
 {% if site.author.googlescholar %}
-  <div class="wordwrap">You can also find my articles on <a href="{{site.author.googlescholar}}">my Google Scholar profile</a>.</div>
+<div class="wordwrap">
+  You can also find my articles on 
+  <a href="{{ site.author.googlescholar }}">my Google Scholar profile</a>.
+</div>
 {% endif %}
 
 {% include base_path %}
 
-<!-- New style rendering if publication categories are defined -->
-{% if site.publication_category %}
-  {% for category in site.publication_category  %}
-    {% assign title_shown = false %}
-    {% for post in site.publications reversed %}
-      {% if post.category != category[0] %}
-        {% continue %}
-      {% endif %}
-      {% unless title_shown %}
-        <h2>{{ category[1].title }}</h2><hr />
-        {% assign title_shown = true %}
-      {% endunless %}
+<!-- Define Publication Categories -->
+{% assign categories = "journal:Journal Articles,conference:Conference Papers,under-review:Papers Under Review" | split: "," %}
+
+{% for category in categories %}
+  {% assign key_value = category | split: ":" %}
+  {% assign key = key_value[0] %}
+  {% assign title = key_value[1] %}
+  
+  {% assign filtered_publications = site.publications | where: "category", key %}
+  
+  {% if filtered_publications.size > 0 %}
+    <h2>{{ title }}</h2><hr />
+    {% for post in filtered_publications reversed %}
       {% include archive-single.html %}
     {% endfor %}
-  {% endfor %}
-{% else %}
-  {% for post in site.publications reversed %}
-    {% include archive-single.html %}
-  {% endfor %}
+  {% endif %}
+{% endfor %}
+
+<!-- Ensure 'Under Review' section appears even if no entries exist -->
+{% assign under_review_papers = site.publications | where: "category", "under-review" %}
+{% if under_review_papers.size == 0 %}
+  <h2>Papers Under Review</h2>
+  <p>No papers are currently under review.</p>
 {% endif %}
-
-
-
