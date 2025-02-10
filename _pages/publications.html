@@ -15,26 +15,35 @@ author_profile: true
 {% include base_path %}
 
 <!-- Define Publication Categories -->
-{% assign categories = "journal:Journal Articles,conference:Conference Papers,under-review:Papers Under Review" | split: "," %}
+{% assign categories = site.publications | group_by: "category" %}
 
 {% for category in categories %}
-  {% assign key_value = category | split: ":" %}
-  {% assign key = key_value[0] %}
-  {% assign title = key_value[1] %}
-  
-  {% assign filtered_publications = site.publications | where: "category", key %}
-  
-  {% if filtered_publications.size > 0 %}
-    <h2>{{ title }}</h2><hr />
-    {% for post in filtered_publications reversed %}
-      {% include archive-single.html %}
-    {% endfor %}
-  {% endif %}
+  <h2>{{ category.name | replace: "journal", "Journal Articles" 
+                         | replace: "conference", "Conference Papers" 
+                         | replace: "under-review", "Papers Under Review" }}</h2>
+  <hr />
+
+  {% for post in category.items reversed %}
+    <div class="publication">
+      <h3>{{ post.title }}</h3>
+      <p><strong>Authors:</strong> {{ post.authors }}</p>
+      <p><strong>Year:</strong> {{ post.year }}</p>
+      <p><strong>Venue:</strong> {{ post.venue }}</p>
+
+      {% if post.link %}
+        <p>📄 <a href="{{ post.link }}" target="_blank">[View Paper]</a></p>
+      {% endif %}
+
+      {% if post.code %}
+        <p>💻 <a href="{{ post.code }}" target="_blank">[Code Repository]</a></p>
+      {% endif %}
+    </div>
+    <hr />
+  {% endfor %}
 {% endfor %}
 
-<!-- Ensure 'Under Review' section appears even if no entries exist -->
-{% assign under_review_papers = site.publications | where: "category", "under-review" %}
-{% if under_review_papers.size == 0 %}
+<!-- Ensure 'Papers Under Review' section appears even if empty -->
+{% unless categories contains "under-review" %}
   <h2>Papers Under Review</h2>
   <p>No papers are currently under review.</p>
-{% endif %}
+{% endunless %}
