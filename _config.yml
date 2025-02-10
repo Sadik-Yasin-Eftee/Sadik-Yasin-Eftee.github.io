@@ -9,7 +9,7 @@
 # Basic Site Settings
 locale                   : "en-US"
 site_theme               : "default"
-title                    : "Sadik Yasin Eftee"
+title                    : "Sadik's Homepage"
 title_separator          : "-"
 name                     : &name "Sadik Yasin Eftee"
 description              : &description "personal description"
