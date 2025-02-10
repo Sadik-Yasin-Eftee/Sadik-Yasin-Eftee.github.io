@@ -7,6 +7,8 @@ redirect_from:
   - /about.html
 ---
 
+![](\images\images/DALL·E 2025-02-10 13.47.57 - An animated cyberpunk art scene inspired by Terminator and Transformers, set in a post-apocalyptic world. The sky is filled with dark, swirling clouds.webp){: .allign-right}
+
 I am a recent Bachelor of Science graduate in Software Engineering from the Islamic University of Technology (IUT), Bangladesh, with a strong passion for Artificial Intelligence (AI), and Natural Language Processing (NLP). My research focuses on enhancing the security, privacy, and robustness of Large Language Models (LLMs) to ensure that AI-driven applications are trustworthy, adversarially resilient, and ethically sound.
 
 Currently, I am exploring security vulnerabilities in Large Language Models (LLMs), including adversarial robustness, prompt injection defenses, and privacy-preserving fine-tuning strategies. Additionally, I am interested in the secure integration of AI into software engineering workflows, ensuring robust, reliable, and adversarially resilient AI-driven applications.
