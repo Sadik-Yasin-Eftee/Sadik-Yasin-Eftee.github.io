@@ -21,9 +21,3 @@ Addressing challenges in training LLMs while preserving user privacy through dif
 
 **Trustworthy AI & Ethical Safeguards**  
 Developing mechanisms for explainability and trust in AI-generated outputs, ensuring fairness, and applying bias mitigation strategies to avoid security loopholes.
-
-**Secure AI Software Engineering**  
-Integrating AI into development pipelines with secure coding, model interpretability, and adversarial resilience; investigating supply chain security risks and automating vulnerability detection in SDLC.
-
-**Efficient & Secure Deployment**  
-Optimizing LLM inference for secure edge AI applications and exploring secure model compression and encrypted inference to prevent model theft and unauthorized access.
