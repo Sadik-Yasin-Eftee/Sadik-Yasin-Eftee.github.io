@@ -7,7 +7,7 @@ redirect_from:
   - /about.html
 ---
 
-![Cyberpunk AI Art](/images/CyberpunkAI.webp){: .align-right}
+![Cyberpunk AI Art](/images/CyberpunkAI.webp){: .align-right width="300px" height="300px"}
 
 I am a recent Bachelor of Science graduate in Software Engineering from the Islamic University of Technology (IUT), Bangladesh, with a strong passion for Artificial Intelligence (AI), and Natural Language Processing (NLP). My research focuses on enhancing the security, privacy, and robustness of Large Language Models (LLMs) to ensure that AI-driven applications are trustworthy, adversarially resilient, and ethically sound.
 
